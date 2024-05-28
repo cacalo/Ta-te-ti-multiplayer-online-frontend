@@ -1,0 +1,31 @@
+<section>
+  <div class="jugador-container">
+    @if(salaService.jugador1() && salaService.jugador1()!.nombre){
+      @if(salaService.jugador2()){
+        @for(vida of vidas; track $index){
+          @if(salaService.jugador2()!.victorias <= $index){
+            ❤️
+          }
+        }
+      } @else {
+        ❤️❤️❤️
+      }
+      <p class="nombre italic">{{salaService.jugador1()!.nombre | titlecase}}</p>
+      <!-- <p>Victorias: {{salaService.jugador1()!.victorias}}</p> -->
+    }
+  </div>
+  
+  <div class="jugador-container">  
+    @if(!salaService.jugador2() || !salaService.jugador2()!.nombre){
+      <p>Esperando compañero...</p>
+    } @else {
+      @for(vida of vidas; track $index){
+        @if(salaService.jugador1()!.victorias <= $index){
+          ❤️
+        }
+      }
+      <p class="nombre italic">{{salaService.jugador2()!.nombre | titlecase }}</p>
+      <!-- <p>Victorias: {{salaService.jugador1()!.victorias}}</p> -->
+    }
+  </div>
+</section>  

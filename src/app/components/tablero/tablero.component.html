@@ -1,0 +1,58 @@
+<p>{{miTurno()? "Tu turno" : "Turno del otro"}}</p>
+<div id="tablero">
+  <button (click)="jugar(0)" 
+    [disabled]="!miTurno() || salaService.tablero()[0]" 
+    [ngClass]="{local: salaService.tablero()[0] === salaService.numeroDeJugador()}">
+      {{ salaService.tablero()[0] }}
+    </button>
+  <button (click)="jugar(1)" 
+    [disabled]="!miTurno() || salaService.tablero()[1]"
+    [ngClass]="{local: salaService.tablero()[1] === salaService.numeroDeJugador()}">
+    {{ salaService.tablero()[1] }}
+    <div class="bordes"></div>
+  </button>
+  <button (click)="jugar(2)" 
+    [disabled]="!miTurno() || salaService.tablero()[2]"
+    [ngClass]="{local: salaService.tablero()[2] === salaService.numeroDeJugador()}">
+    {{ salaService.tablero()[2] }}
+  </button>
+  <button (click)="jugar(3)" 
+    [disabled]="!miTurno() || salaService.tablero()[3]"
+    [ngClass]="{local: salaService.tablero()[3] === salaService.numeroDeJugador()}"
+    >
+    {{ salaService.tablero()[3] }}
+    <div class="bordes"></div>
+  </button>
+  <button (click)="jugar(4)" 
+    [disabled]="!miTurno() || salaService.tablero()[4]"
+    [ngClass]="{local: salaService.tablero()[4] === salaService.numeroDeJugador()}"
+    >
+    {{ salaService.tablero()[4] }}
+    <div class="bordes"></div>
+  </button>
+  <button (click)="jugar(5)" 
+    [disabled]="!miTurno() || salaService.tablero()[5]"
+    [ngClass]="{local: salaService.tablero()[5] === salaService.numeroDeJugador()}"
+    >
+    {{ salaService.tablero()[5] }}
+    <div class="bordes"></div>
+  </button>
+  <button (click)="jugar(6)" 
+    [disabled]="!miTurno() || salaService.tablero()[6]"
+    [ngClass]="{local: salaService.tablero()[6] === salaService.numeroDeJugador()}"
+    >
+    {{ salaService.tablero()[6] }}
+  </button>
+  <button (click)="jugar(7)" 
+    [disabled]="!miTurno() || salaService.tablero()[7]"
+    [ngClass]="{local: salaService.tablero()[7] === salaService.numeroDeJugador()}"
+    >
+    {{ salaService.tablero()[7] }}
+    <div class="bordes"></div>
+  </button>
+  <button (click)="jugar(8)"
+    [disabled]="!miTurno() || salaService.tablero()[8]"
+    [ngClass]="{local: salaService.tablero()[8] === salaService.numeroDeJugador()}">
+      {{ salaService.tablero()[8] }}
+  </button>
+</div>

@@ -1,0 +1,24 @@
+<div id="pantalla-container" class="flex-column">
+  <!-- Título -->
+  <h1 class="italic borde-animado">TA-TE-TI <span>ONLINE</span></h1>
+
+  <!-- Escribí tu nombre -->
+  <form id="nombre-form" (ngSubmit)="usuario.cambiarNombre(nombre.value)">
+    <label for="nombre" class="italic">ESCRIBÍ TU NOMBRE</label>
+    <input type="text" name="nombre" id="nombre" class="borde-punteado" [value]="usuario.nombre()" #nombre>
+    <button class="submit" [disabled]="!nombre.value ||  nombre.value === usuario.nombre()">Guardar</button>
+  </form>
+
+  <!-- Botones inferiores -->
+  <div class="flex-column">
+    <!-- <a [routerLink]="['/jugar']" class="boton">Jugar online (sala pública)</a> -->
+    <button (click)="buscarSalaPublica()" class="boton">Jugar online (sala pública)</button>
+    <a [routerLink]="['/jugar-privada']" class="boton">Crear sala privada</a>
+  </div>
+  <!-- <form (ngSubmit)="irASala(salaInput.value)">
+    <label for="sala">Nº de sala</label>
+    <input type="number" #salaInput>
+    <button>Entrar a sala</button>
+  </form> -->
+
+</div>

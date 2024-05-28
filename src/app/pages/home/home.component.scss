@@ -1,0 +1,53 @@
+@use "./../../../assets/colors.scss";
+
+#pantalla-container{
+  justify-content: space-between;
+  height: 500px;
+  align-items: center;
+  margin: 40px 0;
+}
+
+h1 span{
+  display: block;
+  font-size: medium;
+}
+
+#nombre-form{
+  label{
+    display: block;
+  }
+  input {
+    background-color: transparent;
+  }
+  button:disabled{
+    //background-color: rgb(230, 230, 230);
+    color: colors.$primary;
+  }
+}
+
+$ancho-borde-animado: 350px;
+$alto-borde-animado: 50px;
+
+.borde-animado {
+  height:$alto-borde-animado;
+  width: $ancho-borde-animado;
+  line-height: $alto-borde-animado;
+  background: 
+    linear-gradient(90deg, colors.$primary 50%, transparent 50%),
+    linear-gradient(90deg, colors.$primary 50%, transparent 50%),
+    linear-gradient(0deg, colors.$primary 50%, transparent 50%),
+    linear-gradient(0deg, colors.$primary 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+  background-position: 0px 0px, $ancho-borde-animado$alto-borde-animado, 0px$alto-borde-animado, $ancho-borde-animado 0px;
+  padding: 10px;
+  animation: borde-animado 1s infinite steps(2,jump-both);
+}
+@keyframes borde-animado {
+  0% {
+    background-position: 0px 0px, 300px calc($alto-borde-animado + 16px), 0px 150px, calc($ancho-borde-animado + 16px) 0px;
+  }
+  100% {
+    background-position: 300px 0px, 0px calc($alto-borde-animado + 16px), 0px 0px, calc($ancho-borde-animado + 16px) 150px;
+  }
+}

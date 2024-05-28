@@ -1,0 +1,71 @@
+@use "./../../../assets/colors.scss";
+
+$borde: 3px solid colors.$primary;
+$extension: 70%;
+
+#tablero{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  max-width: 500px;
+  margin: auto;
+}
+
+button{
+  aspect-ratio: 1;
+  font-size: 6rem;
+  background-color: unset;
+  border: unset;
+  position: relative;
+  cursor: pointer;
+
+  &:disabled{
+    pointer-events: none;
+  }
+
+  //Bordes
+  div {
+    position: absolute;
+    pointer-events: none;
+  }
+  &:nth-of-type(2) div{
+    top: calc(100% - $extension);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-left: $borde;
+    border-right: $borde;
+    z-index: 1;
+   }
+  &:nth-of-type(4) div{
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: $extension;
+    border-top: $borde;
+    border-bottom: $borde;
+  }
+  &:nth-of-type(5){
+    border: $borde;
+  }
+  &:nth-of-type(6) div{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: $extension;
+    border-top: $borde;
+    border-bottom: $borde;
+  }
+  &:nth-of-type(8) div{
+    top: 0;
+    bottom:  calc(100% - $extension);
+    left: 0;
+    right: 0;
+    border-left: $borde;
+    border-right: $borde;
+  }
+}
+
+.local{
+  color: colors.$accent-2;
+}

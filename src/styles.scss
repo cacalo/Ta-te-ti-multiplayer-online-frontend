@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+@use "./assets/colors.scss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+
+*{
+  font-family: 'JetBrains Mono', monospace;
+  color: colors.$primary;
+}
+
+h1,h2,h3,h4,h4,h6,p{
+  margin: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.flex-apart{
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+#pantalla-container{
+  text-align: center;
+  margin: auto;
+  margin: 1rem;
+  //border: 1px solid black;
+}
+
+.borde-punteado{
+  border-style: dashed;
+  border-width: 1px;
+  border-color: colors.$primary;
+}
+
+.boton{
+  background-color: transparent;
+  border-style: dashed;
+  border-width: 1px;
+  border-color: colors.$primary;
+  cursor: pointer;
+}
+
+.italic{
+  font-style: italic;
+}
+
+.boton-invertido{
+  background-color: colors.$primary;
+}

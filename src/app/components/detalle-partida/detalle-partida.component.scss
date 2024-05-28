@@ -1,0 +1,17 @@
+section{
+  display: flex;
+  justify-content: space-between;
+}
+
+.nombre{
+  font-weight: 600;
+}
+
+.jugador-container{
+  &:nth-of-type(1){
+    text-align: start;
+  }
+  &:nth-of-type(2){
+    text-align: end;
+  }
+}

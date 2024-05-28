@@ -1,0 +1,14 @@
+@if(mostrar()){
+<div id="fondo" @fadeInOut></div>
+<div id="container" @animateChildren class="flex-column">
+  <span id="uno" @inOutAnimation1>
+    <ng-content select="[primario]"></ng-content>
+  </span>
+  <span id="dos" @inOutAnimation2>
+    <ng-content select="[secundario]"></ng-content>
+  </span>
+  <span id="pie">
+    <ng-content select="[pie]"></ng-content>
+  </span>
+</div>
+}

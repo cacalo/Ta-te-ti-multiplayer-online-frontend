@@ -1,0 +1,22 @@
+@use "./../assets/colors.scss";
+
+$border-radius-base: 20px;
+$padding-consola: 20px;
+
+#container{
+  background-color: colors.$accent-1;
+  max-width: 500px;
+  border-radius: calc($border-radius-base + $padding-consola);
+  padding: $padding-consola;
+}
+
+#pantalla{
+  border: 1rem solid colors.$primary;
+  border-radius: $border-radius-base;
+  background-color: colors.$background;
+  position: relative;
+  overflow: hidden;
+}
+
+#branding{
+}

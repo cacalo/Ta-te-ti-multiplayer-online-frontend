@@ -1,0 +1,59 @@
+<div id="pantalla-container" class="flex-column">
+@if(salaService.id() !== null){
+  <!-- Esperando compañero -->
+  <app-modal-fullscreen [mostrar]='salaService.estado() === "ESPERANDO_COMPAÑERO"'>
+    <h2 primario>ESPERANDO COMPAÑERO</h2>
+    <img secundario src="./../../../assets/img/3-dots-scale-middle.svg">
+    @if(salaService.esPrivada()){
+      <div pie>
+        <p>Copiá el link para invitar a un amigo
+        <button id="copiar" (click)="copiarLink()"><img src="./../../../assets/img/copy.svg" alt="copiar"></button>
+        @if (linkCopiado()) {
+          <span>✓</span>
+        }</p>
+      </div>
+    }
+  </app-modal-fullscreen>
+
+  <!-- Comienza el juego -->
+    <app-modal-fullscreen [mostrar]="comienzaElJuego()">
+      <h2 primario>COMIENZA EL JUEGO!</h2>
+    </app-modal-fullscreen>
+
+
+    <!-- Terminó la partida -->
+    <app-modal-fullscreen [mostrar]="estadosConModal.includes(salaService.estado())">
+        @switch (salaService.estado()) {
+          @case ("VICTORIA_P1") {
+            <h2 primario>GANÓ {{salaService.jugador1()!.nombre | uppercase}}</h2>
+          }
+          @case ("VICTORIA_FINAL_P1") {
+            <h2 primario>GANÓ {{salaService.jugador1()!.nombre | uppercase}} TODAS LAS RONDAS</h2>
+          }
+          @case ("VICTORIA_P2") {
+            <h2 primario>GANÓ {{salaService.jugador2()!.nombre | uppercase}}</h2>
+          }
+          @case ("VICTORIA_FINAL_P2") {
+            <h2 primario>GANÓ {{salaService.jugador2()!.nombre | uppercase}} TODAS LAS RONDAS</h2>
+          }
+          @case ("EMPATE") {
+            <h2 primario>EMPATE</h2>
+          }
+        }
+          <button secundario (click)="salaService.nuevaRonda()">
+          {{(salaService.estado() === "VICTORIA_FINAL_P1" || salaService.estado() === "VICTORIA_FINAL_P2") ? "Nueva partida" : "Continuar"}}
+          </button>
+    </app-modal-fullscreen>
+
+
+    <!-- Abandono -->
+    <app-modal-fullscreen [mostrar]='salaService.estado() === "ABANDONADO"'>
+      <h2 primario>COMPAÑERO DESCONECTADO</h2>
+      <a secundario [routerLink]="['/']" >Volver al inicio</a>
+    </app-modal-fullscreen>
+    
+  <app-detalle-partida/>
+  <app-tablero/>
+}
+<!-- <app-chat/> -->
+</div>  
