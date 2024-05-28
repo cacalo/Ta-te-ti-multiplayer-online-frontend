@@ -3,7 +3,6 @@ import { ServerService } from './server.service';
 import { CrearSalaRespuesta, UnirseASalaRespuesta } from '../interfaces/respuestas';
 import { CrearSalaArgs, EstadoJuego, SalaJuego, UnirseASalaArgs } from '../interfaces/sala';
 import { UsuarioService } from './usuario.service';
-import { ChatService } from './chat.service';
 import { Jugador } from '../interfaces/jugador';
 import { Marca, PosicionTablero } from '../interfaces/tablero';
 
@@ -14,7 +13,6 @@ export class SalaService {
 
   serverService = inject(ServerService);
   usuarioService = inject(UsuarioService);
-  chatService = inject(ChatService);  
 
   id = signal<number | undefined>(undefined);
   numeroDeJugador = signal<1|2|undefined>(undefined);

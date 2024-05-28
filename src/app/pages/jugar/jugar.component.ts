@@ -4,7 +4,6 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { SalaService } from '../../services/sala.service';
 import { TableroComponent } from "../../components/tablero/tablero.component";
 import { DetallePartidaComponent } from "../../components/detalle-partida/detalle-partida.component";
-import { ChatComponent } from "../../components/chat/chat.component";
 import { UsuarioService } from '../../services/usuario.service';
 import { ModalFullscreenComponent } from "../../components/modal-fullscreen/modal-fullscreen.component";
 import { environment } from '../../../environments/environment';
@@ -16,7 +15,7 @@ import { take } from 'rxjs';
     standalone: true,
     templateUrl: './jugar.component.html',
     styleUrl: './jugar.component.scss',
-    imports: [CommonModule, RouterModule, TableroComponent, DetallePartidaComponent, ChatComponent, ModalFullscreenComponent, UpperCasePipe]
+    imports: [CommonModule, RouterModule, TableroComponent, DetallePartidaComponent, ModalFullscreenComponent, UpperCasePipe]
 })
 export class JugarComponent {
   salaService = inject(SalaService);
@@ -24,7 +23,6 @@ export class JugarComponent {
   client_url = environment.CLIENT_URL;
   estadosConModal:EstadoJuego[] = ["VICTORIA_P1","VICTORIA_P2","VICTORIA_FINAL_P1","VICTORIA_FINAL_P2","EMPATE"]
   linkCopiado = signal(false);
-  //comienzaElJuego = signal(true);
   comienzaElJuego = computed(()=> 
     (this.salaService.estado() ==="TURNO_P1" || this.salaService.estado() ==="TURNO_P2") && this.animacionComienzaJuego()
   )
@@ -68,15 +66,5 @@ export class JugarComponent {
     this.linkCopiado.set(true);
     setTimeout(()=> this.linkCopiado.set(false),3000);
   }
-
-  // solicitarAsignarJugador(jugador:Jugador){
-  //   this.salaService.server.server.emit(tipoMensaje.asignacionJugador,jugador,this.salaService.salaId);
-  //   this.jugador.set(jugador);
-  //   console.log("Intento de jugador asignado")
-  // }
-
-  // asignarJugador(jugador:number, slot:number){
-
-  // }
 
 }
