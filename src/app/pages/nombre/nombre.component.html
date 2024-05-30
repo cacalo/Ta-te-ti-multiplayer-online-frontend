@@ -1,0 +1,9 @@
+<div id="pantalla-container" class="flex-column">
+  <form id="nombre-form" (ngSubmit)="guardarNombreYContinuar(nombre.value)">
+    <div>
+      <label for="nombre" class="italic">ESCRIBÍ TU NOMBRE</label>
+      <input type="text" name="nombre" id="nombre" class="borde-punteado" [value]="usuario.nombre()" #nombre>
+    </div>
+    <button class="submit boton">Guardar</button>
+  </form>
+</div>
