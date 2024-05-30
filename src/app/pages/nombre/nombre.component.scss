@@ -1,5 +1,12 @@
 @use "./../../../assets/colors.scss";
 
+#pantalla-container{
+  justify-content: space-between;
+  height: 500px;
+  align-items: center;
+  margin: 40px 0;
+}
+
 #nombre-form{
   display: flex;
   flex-direction: column;

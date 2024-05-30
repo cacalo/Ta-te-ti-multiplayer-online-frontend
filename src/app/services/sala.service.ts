@@ -63,7 +63,7 @@ export class SalaService {
     }
     const union:UnirseASalaRespuesta = await this.serverService.server.emitWithAck("unirseASala",args);
     // console.log(union.accion, union.accion==="unido")
-    if(union.accion === "unido"){
+    if(union.exito){
       //Propago la información inicial de la sala
       if(union.sala.jugador1.nombre === this.usuarioService.nombre()) this.numeroDeJugador.set(1);
       else if(union.sala.jugador2.nombre === this.usuarioService.nombre()) this.numeroDeJugador.set(2);
@@ -97,6 +97,17 @@ export class SalaService {
     this.estado.set(salaBack.estado);
     this.tablero.set(salaBack.tablero)
     this.esPrivada.set(salaBack.esPrivada);
-    console.log(this.jugador1(),this.jugador2())
+    // console.log(this.jugador1(),this.jugador2())
+  }
+
+  obtenerCaracterJugador(posicionJugador:string | number){
+    switch(posicionJugador){
+      case 1:
+        return "X";
+      case 2:
+        return "0";
+      default:
+        return ""
+    }
   }
 }

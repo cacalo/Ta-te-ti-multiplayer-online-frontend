@@ -1,17 +1,15 @@
 <section>
   <div class="jugador-container">
     @if(salaService.jugador1() && salaService.jugador1()!.nombre){
+      <span class="corazon">
       @if(salaService.jugador2()){
         @for(vida of vidas; track $index){
-          @if(salaService.jugador2()!.victorias <= $index){
-            ❤️
-          }
+          @if(salaService.jugador2()!.victorias <= $index){♥}
         }
-      } @else {
-        ❤️❤️❤️
-      }
+      } @else {♥♥♥}
+    </span>
+    <span class="marcaJugador"  [ngClass]="{'activo': salaService.estado() === 'TURNO_P1'}">X</span>
       <p class="nombre italic">{{salaService.jugador1()!.nombre | titlecase}}</p>
-      <!-- <p>Victorias: {{salaService.jugador1()!.victorias}}</p> -->
     }
   </div>
   
@@ -19,13 +17,13 @@
     @if(!salaService.jugador2() || !salaService.jugador2()!.nombre){
       <p>Esperando compañero...</p>
     } @else {
+      <span class="marcaJugador" [ngClass]="{'activo': salaService.estado() === 'TURNO_P2'}">O</span>
+      <span class="corazon">
       @for(vida of vidas; track $index){
-        @if(salaService.jugador1()!.victorias <= $index){
-          ❤️
-        }
+        @if(salaService.jugador1()!.victorias <= $index){♥}
       }
+    </span>
       <p class="nombre italic">{{salaService.jugador2()!.nombre | titlecase }}</p>
-      <!-- <p>Victorias: {{salaService.jugador1()!.victorias}}</p> -->
     }
   </div>
 </section>  

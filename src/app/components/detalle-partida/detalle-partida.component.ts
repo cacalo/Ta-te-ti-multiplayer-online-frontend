@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { SalaService } from '../../services/sala.service';
-import { TitleCasePipe } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-detalle-partida',
   standalone: true,
-  imports: [TitleCasePipe],
+  imports: [CommonModule, TitleCasePipe],
   templateUrl: './detalle-partida.component.html',
   styleUrl: './detalle-partida.component.scss'
 })

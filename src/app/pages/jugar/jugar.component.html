@@ -40,16 +40,19 @@
             <h2 primario>EMPATE</h2>
           }
         }
-          <button secundario (click)="salaService.nuevaRonda()">
+          <button secundario class="boton" (click)="salaService.nuevaRonda()">
           {{(salaService.estado() === "VICTORIA_FINAL_P1" || salaService.estado() === "VICTORIA_FINAL_P2") ? "Nueva partida" : "Continuar"}}
-          </button>
+        </button>
+        @if(salaService.estado().includes("FINAL")){
+          <a secundario class="boton" (click)="salaService.nuevaRonda()">Volver al inicio</a>
+        }
     </app-modal-fullscreen>
 
 
     <!-- Abandono -->
     <app-modal-fullscreen [mostrar]='salaService.estado() === "ABANDONADO"'>
       <h2 primario>COMPAÑERO DESCONECTADO</h2>
-      <a secundario [routerLink]="['/']" >Volver al inicio</a>
+      <a secundario class="boton" [routerLink]="['../']" >Volver al inicio</a>
     </app-modal-fullscreen>
     
   <app-detalle-partida/>

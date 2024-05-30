@@ -35,7 +35,6 @@ a{
   text-align: center;
   margin: auto;
   margin: 1rem;
-  //border: 1px solid black;
 }
 
 .borde-punteado{
@@ -46,16 +45,19 @@ a{
 
 .boton{
   background-color: transparent;
-  border-style: dashed;
-  border-width: 1px;
-  border-color: colors.$primary;
+  border: 1px solid colors.$primary;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: color-mix(in srgb, colors.$background, transparent 20%);
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
+  &:hover{
+    background-color: colors.$primary;
+    color: colors.$background;
+  }
 }
 
 .italic{
   font-style: italic;
-}
-
-.boton-invertido{
-  background-color: colors.$primary;
 }

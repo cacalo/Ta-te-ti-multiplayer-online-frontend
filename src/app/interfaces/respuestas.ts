@@ -1,7 +1,7 @@
 import { SalaJuego } from "./sala";
 
 export interface CrearSalaRespuesta {
-  accion: "unido" | "error",
+  exito: boolean,
   sala:SalaJuego
 }
 
