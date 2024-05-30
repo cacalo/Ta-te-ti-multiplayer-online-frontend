@@ -23,7 +23,7 @@
 
     <!-- Terminó la partida -->
     <app-modal-fullscreen [mostrar]="estadosConModal.includes(salaService.estado())">
-        @switch (salaService.estado()) {
+        @switch (estadoAnterior()) {
           @case ("VICTORIA_P1") {
             <h2 primario>GANÓ {{salaService.jugador1()!.nombre | uppercase}}</h2>
           }

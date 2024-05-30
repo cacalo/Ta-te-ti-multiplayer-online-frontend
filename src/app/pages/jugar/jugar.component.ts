@@ -31,6 +31,15 @@ export class JugarComponent {
     if(this.comienzaElJuego()) {setTimeout(()=>{ this.animacionComienzaJuego.set(false);},1500)};
   },{allowSignalWrites:true})
 
+  estadoAnterior= signal<EstadoJuego>("ESPERANDO_COMPAÑERO")
+  /** Mantiene el estado anterior por unos segundos para que no desaparezca el texto de los modales fullscreen */
+  cambiarEstadoAnteriorDiferido = effect(()=> {
+    if(!this.estadosConModal.includes(this.salaService.estado())){
+      console.log("retrasando el estado")
+      setTimeout(()=>this.estadoAnterior.set(this.salaService.estado()),3000)
+    }
+  })
+
   constructor(private ar:ActivatedRoute, private router: Router){
     //if(!this.usuarioService.nombre()) router.navigate(["/"]);
     if(!this.usuarioService.nombre()){
