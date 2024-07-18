@@ -1,6 +1,10 @@
 app-modal-fullscreen{
   z-index: 2;
 }
+#pantalla-container{
+  min-height: 400px;
+  margin: 40px 0;
+}
 
 #copiar{
   margin: 0px;
@@ -10,4 +14,10 @@ app-modal-fullscreen{
   border: unset;
   cursor: pointer;
   translate: (0 5px);
+}
+
+@media( height < "830px"){
+  #pantalla-container{
+    height: 80vh;
+  }
 }

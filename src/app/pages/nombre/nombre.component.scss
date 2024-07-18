@@ -2,7 +2,7 @@
 
 #pantalla-container{
   justify-content: space-between;
-  height: 500px;
+  min-height: 400px;
   align-items: center;
   margin: 40px 0;
 }
@@ -34,5 +34,11 @@
       background-color: rgb(192, 0, 0);
       color: colors.$primary;
     }
+  }
+}
+
+@media( height < "830px"){
+  #pantalla-container{
+    height: 80vh;
   }
 }

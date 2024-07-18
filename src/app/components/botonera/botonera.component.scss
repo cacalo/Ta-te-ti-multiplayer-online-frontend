@@ -5,7 +5,9 @@ $ancho-seccion-d-pad: 20px;
 $padding-d-pad: 6px;
 
 #container{
-  padding-top: 60px;
+  //padding-top: 10px;
+  height: 38vh;
+  justify-content: flex-end;
   gap: 40px;
 }
 

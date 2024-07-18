@@ -2,6 +2,9 @@
 @use "./assets/colors.scss";
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
+:root{
+  --breakpoint-mobile: 600px;
+}
 
 *{
   font-family: 'JetBrains Mono', monospace;
@@ -60,4 +63,10 @@ a{
 
 .italic{
   font-style: italic;
+}
+
+@media(width<="600px"){
+  body{
+    margin: 0;
+  }
 }
