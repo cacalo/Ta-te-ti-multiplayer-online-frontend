@@ -1,4 +1,4 @@
 export const environment = {
-  SERVER_URL: "http://localhost:3000/",
-  CLIENT_URL: "http://localhost:4200/"
+  SERVER_URL: "https://ta-te-ti-multiplayer-online-backend.onrender.com/",
+  CLIENT_URL: "https://ta-te-ti-online-prototipo.netlify.app/"
 };
